@@ -2,6 +2,7 @@
   "name": "@molviewstory/types",
   "version": "0.1.0",
   "exports": "./mod.ts",
+  "nodeModulesDir": "auto",
   "tasks": {
     "dev": "deno test --watch"
   },
