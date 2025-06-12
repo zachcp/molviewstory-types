@@ -1,22 +1,89 @@
 import { Vec3 } from "molstar/lib/mol-math/linear-algebra";
+import { MVSData, Snapshot } from "molstar/lib/extensions/mvs/mvs-data";
+
+function adjustedCameraPosition(camera: CameraData) {
+  // MVS uses FOV-adjusted camera position, need to apply inverse here so it doesn't offset the view when loaded
+  const f =
+    camera.mode === "orthographic"
+      ? 1 / (2 * Math.tan(camera.fov / 2))
+      : 1 / (2 * Math.sin(camera.fov / 2));
+  const delta = Vec3.sub(
+    Vec3(),
+    camera.position as Vec3,
+    camera.target as Vec3,
+  );
+  return Vec3.scaleAndAdd(
+    Vec3(),
+    camera.target as Vec3,
+    delta,
+    1 / f,
+  ) as unknown as [number, number, number];
+}
+
+const createStateProvider = (code: string) => {
+  return new Function("builder", code);
+};
+
+async function getMVSSnapshot(story: Story, scene: SceneData) {
+  try {
+    const stateProvider = createStateProvider(`
+async function _run_builder() {
+      ${story.javascript}\n\n${scene.javascript}
+}
+return _run_builder();
+`);
+    const builder = MVSData.createBuilder();
+    await stateProvider(builder);
+    if (scene.camera) {
+      builder.camera({
+        position: adjustedCameraPosition(scene.camera),
+        target: scene.camera.target as unknown as [number, number, number],
+        up: scene.camera.up as unknown as [number, number, number],
+      });
+    }
+    const snapshot = builder.getSnapshot({
+      key: scene.key.trim() || undefined,
+      title: scene.header,
+      description: scene.description,
+      linger_duration_ms: scene.linger_duration_ms || 5000,
+      transition_duration_ms: scene.transition_duration_ms || 500,
+    });
+
+    return snapshot;
+  } catch (error) {
+    console.error("Error creating state provider:", error);
+    throw error;
+  }
+}
 
 /**
  * Container for a complete story with version information
  */
-export type StoryContainer = {
+export class StoryContainer {
   /** Version of the story format */
-  version: 1;
+  readonly version: 1 = 1;
   /** The story data */
   story: Story;
-};
 
-/**
- * Metadata information for a story
- */
-export type StoryMetadata = {
-  /** The title of the story */
-  title: string;
-};
+  constructor(story: Story) {
+    this.story = story;
+  }
+
+  /**
+   * Generates snapshots for all scenes in the story
+   * @returns Promise resolving to array of MVS snapshots
+   */
+  async generate(): Promise<Snapshot[]> {
+    const snapshots: Snapshot[] = [];
+
+    for (const scene of this.story.scenes) {
+      const snapshot = await getMVSSnapshot(this.story, scene);
+      snapshots.push(snapshot);
+    }
+
+    return snapshots;
+  }
+}
 
 /**
  * Complete story definition containing metadata, code, scenes, and assets
@@ -33,6 +100,14 @@ export type Story = {
 };
 
 /**
+ * Metadata information for a story
+ */
+export type StoryMetadata = {
+  /** The title of the story */
+  title: string;
+};
+
+/**
  * Represents a file asset used in the story (e.g., PDB files, images, etc.)
  */
 export type SceneAsset = {
@@ -43,23 +118,10 @@ export type SceneAsset = {
 };
 
 /**
- * Camera configuration for 3D scene viewing
- */
-export type CameraData = {
-  /** Camera projection mode */
-  mode: "perspective" | "orthographic";
-  /** Point the camera is looking at in 3D space */
-  target: [number, number, number] | Vec3;
-  /** Camera position in 3D space */
-  position: [number, number, number] | Vec3;
-  /** Camera up vector defining the orientation */
-  up: [number, number, number] | Vec3;
-  /** Field of view angle in degrees (for perspective mode) */
-  fov: number;
-};
-
-/**
  * Complete data for a single scene in the story
+ *
+ * similar to SnapshotMetadata in
+ *  https://github.com/molstar/molstar/blob/master/src/extensions/mvs/mvs-data.ts
  */
 export type SceneData = {
   /** Unique identifier for the scene */
@@ -81,36 +143,17 @@ export type SceneData = {
 };
 
 /**
- * Partial update data for a scene (excludes id which cannot be changed)
+ * Camera configuration for 3D scene viewing
  */
-export type SceneUpdate = Partial<Omit<SceneData, "id">>;
-
-/**
- * Data required to create a new scene (excludes id which will be generated)
- */
-export type CreateSceneData = Omit<SceneData, "id">;
-
-/**
- * Represents the current view/navigation state in the story editor
- */
-export type CurrentView =
-  | {
-      /** Story-level options view */
-      type: "story-options";
-      /** Specific story options subview */
-      subview: "story-metadata" | "story-wide-code" | "asset-upload";
-    }
-  | {
-      /** Scene-specific view */
-      type: "scene";
-      /** ID of the scene being viewed */
-      id: string;
-      /** Specific scene subview */
-      subview: "scene-options" | "3d-view";
-    }
-  | {
-      /** Preview mode view */
-      type: "preview";
-      /** Previous view to return to when exiting preview (optional) */
-      previous?: CurrentView;
-    };
+export type CameraData = {
+  /** Camera projection mode */
+  mode: "perspective" | "orthographic";
+  /** Point the camera is looking at in 3D space */
+  target: [number, number, number] | Vec3;
+  /** Camera position in 3D space */
+  position: [number, number, number] | Vec3;
+  /** Camera up vector defining the orientation */
+  up: [number, number, number] | Vec3;
+  /** Field of view angle in degrees (for perspective mode) */
+  fov: number;
+};
