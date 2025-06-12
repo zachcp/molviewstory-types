@@ -1,5 +1,7 @@
-import { Vec3 } from "molstar/lib/mol-math/linear-algebra";
-import { MVSData, Snapshot } from "molstar/lib/extensions/mvs/mvs-data";
+import { Vec3, MVSData, Snapshot, deflate, inflate, Zip } from "./deps.ts";
+
+// Re-export MVSData for external use
+export { MVSData };
 
 function adjustedCameraPosition(camera: CameraData) {
   // MVS uses FOV-adjusted camera position, need to apply inverse here so it doesn't offset the view when loaded
@@ -23,6 +25,45 @@ function adjustedCameraPosition(camera: CameraData) {
 const createStateProvider = (code: string) => {
   return new Function("builder", code);
 };
+
+async function getMVSData(
+  story: Story,
+  scenes: SceneData[] = story.scenes,
+): Promise<MVSData | Uint8Array> {
+  // Async in case of creating a ZIP archive with static assets
+
+  const snapshots: Snapshot[] = [];
+
+  // TODO: not sure if Promise.all would be better here.
+  for (const scene of scenes) {
+    const snapshot = await getMVSSnapshot(story, scene);
+    snapshots.push(snapshot);
+  }
+  const index: MVSData = {
+    kind: "multiple",
+    metadata: {
+      title: story.metadata.title,
+      timestamp: new Date().toISOString(),
+      version: `${MVSData.SupportedVersion}`,
+    },
+    snapshots,
+  };
+
+  if (!story.assets.length) {
+    return index;
+  }
+
+  const encoder = new TextEncoder();
+  const files: Record<string, Uint8Array> = {
+    "index.mvsj": encoder.encode(JSON.stringify(index)),
+  };
+  for (const asset of story.assets) {
+    files[asset.name] = asset.content;
+  }
+
+  const zip = await Zip(files).run();
+  return new Uint8Array(zip);
+}
 
 async function getMVSSnapshot(story: Story, scene: SceneData) {
   try {
@@ -70,18 +111,11 @@ export class StoryContainer {
   }
 
   /**
-   * Generates snapshots for all scenes in the story
-   * @returns Promise resolving to array of MVS snapshots
+   * Generates MVSData for the story, including all scenes and assets
+   * @returns Promise resolving to MVSData object or Uint8Array (if assets are present)
    */
-  async generate(): Promise<Snapshot[]> {
-    const snapshots: Snapshot[] = [];
-
-    for (const scene of this.story.scenes) {
-      const snapshot = await getMVSSnapshot(this.story, scene);
-      snapshots.push(snapshot);
-    }
-
-    return snapshots;
+  async generate(): Promise<MVSData | Uint8Array> {
+    return await getMVSData(this.story);
   }
 }
 

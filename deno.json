@@ -1,14 +1,14 @@
 {
   "name": "@zachcp/molviewstory-types",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "exports": "./mod.ts",
-  "nodeModulesDir": "auto",
+  "nodeModulesDir": "none",
   "tasks": {
-    "dev": "deno test --watch"
+    "dev": "deno test --watch",
+    "check": "deno check **/*.ts"
   },
   "license": "MIT",
   "imports": {
-    "@std/assert": "jsr:@std/assert@1",
-    "molstar": "npm:molstar@^4.18.0"
+    "@std/assert": "jsr:@std/assert@1"
   }
 }
