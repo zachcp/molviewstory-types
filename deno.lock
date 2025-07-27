@@ -2,9 +2,9 @@
   "version": "5",
   "specifiers": {
     "jsr:@std/assert@1": "1.0.13",
-    "jsr:@std/internal@^1.0.6": "1.0.8",
+    "jsr:@std/internal@^1.0.6": "1.0.10",
     "npm:@types/node@*": "22.15.15",
-    "npm:molstar@4.18.0": "4.18.0_react@19.1.0_react-dom@19.1.0__react@19.1.0"
+    "npm:molstar@5.0.0-dev.0": "5.0.0-dev.0_react@19.1.0_react-dom@19.1.0__react@19.1.0"
   },
   "jsr": {
     "@std/assert@1.0.13": {
@@ -13,8 +13,8 @@
         "jsr:@std/internal"
       ]
     },
-    "@std/internal@1.0.8": {
-      "integrity": "fc66e846d8d38a47cffd274d80d2ca3f0de71040f855783724bb6b87f60891f5"
+    "@std/internal@1.0.10": {
+      "integrity": "e3be62ce42cab0e177c27698e5d9800122f67b766a0bea6ca4867886cbde8cf7"
     }
   },
   "npm": {
@@ -63,8 +63,8 @@
     "@types/estree@1.0.8": {
       "integrity": "sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w=="
     },
-    "@types/express-serve-static-core@5.0.6": {
-      "integrity": "sha512-3xhRnjJPkULekpSzgtoNYYcTWgEZkp4myc+Saevii5JPnHNvHMRlBSHDbs7Bh1iPPoVTERHEZXyhyLbMEsExsA==",
+    "@types/express-serve-static-core@5.0.7": {
+      "integrity": "sha512-R+33OsgWw7rOhD1emjU7dzCDHucJrgJXMA5PYCzJxVil0dsyx5iBEPHqpPfiKNJQb7lZ1vxwoLR4Z87bBUpeGQ==",
       "dependencies": [
         "@types/node@22.15.15",
         "@types/qs",
@@ -108,8 +108,8 @@
         "form-data"
       ]
     },
-    "@types/node@18.19.111": {
-      "integrity": "sha512-90sGdgA+QLJr1F9X79tQuEut0gEYIfkX9pydI4XGRgvFo9g2JWswefI+WUSUHPYVBHYSEfTEqBxA5hQvAZB3Mw==",
+    "@types/node@18.19.120": {
+      "integrity": "sha512-WtCGHFXnVI8WHLxDAt5TbnCM4eSE+nI0QN2NJtwzcgMhht2eNz6V9evJrk+lwC8bCY8OWV5Ym8Jz7ZEyGnKnMA==",
       "dependencies": [
         "undici-types@5.26.5"
       ]
@@ -126,8 +126,8 @@
     "@types/range-parser@1.2.7": {
       "integrity": "sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ=="
     },
-    "@types/react@19.1.7": {
-      "integrity": "sha512-BnsPLV43ddr05N71gaGzyZ5hzkCmGwhMvYc8zmvI8Ci1bRkkDSzDDVfAXfN2tk748OwI7ediiPX6PfT9p0QGVg==",
+    "@types/react@19.1.8": {
+      "integrity": "sha512-AwAfQ2Wa5bCx9WP8nZL2uMZWod7J7/JSplxbTmBQ5ms6QpqNYm672H0Vu9ZVKVngQ+ii4R/byguVEUZQyeg44g==",
       "dependencies": [
         "csstype"
       ]
@@ -286,8 +286,8 @@
         "mime-db@1.54.0"
       ]
     },
-    "compression@1.8.0": {
-      "integrity": "sha512-k6WLKfunuqCYD3t6AsuPGvQWaKwuLLh2/xHNcX4qE+vIfDNXpSqnrhwA7O53R7WVQUnt8dVAIW+YHr7xTgOgGA==",
+    "compression@1.8.1": {
+      "integrity": "sha512-9mAqGPHLakhCLeNyxPkK4xVo746zQ/czLH1Ky+vkitMnWfWZps8r0qXuwhwizagCRttsL4lfG4pIOvaWLpAP0w==",
       "dependencies": [
         "bytes",
         "compressible",
@@ -359,8 +359,8 @@
         "ms@2.1.3"
       ]
     },
-    "decode-named-character-reference@1.1.0": {
-      "integrity": "sha512-Wy+JTSbFThEOXQIR2L6mxJvEs+veIzpmqD7ynWxMXGpnk3smkHQOp6forLdHsKpAMW9iJpaBBIxz285t1n1C3w==",
+    "decode-named-character-reference@1.2.0": {
+      "integrity": "sha512-c6fcElNV6ShtZXmsgNgFFV5tVX2PaV4g+MOAkb8eXHvn6sryJBrZa9r0zV6+dtTyoCKxtDy5tyQ5ZwQuidtd+Q==",
       "dependencies": [
         "character-entities"
       ]
@@ -504,6 +504,9 @@
     "escape-html@1.0.3": {
       "integrity": "sha512-NiSupZ4OeuGwr68lGIeym/ksIZMJodUGOSCZ/FSnTxcrekbvqrgdUxlJOMpijaKZVjAJrWrGs/6Jy8OMuyj9ow=="
     },
+    "escape-string-regexp@5.0.0": {
+      "integrity": "sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw=="
+    },
     "estree-util-is-identifier-name@3.0.0": {
       "integrity": "sha512-hFtqIDZTIUZ9BXLb8y4pYGyk6+wekIivNVTcmvk8NoOh+VeRn5y6cEHzbURrWbfp1fIqdVipilzj+lfaadNZmg=="
     },
@@ -562,8 +565,8 @@
         "is-callable"
       ]
     },
-    "form-data@4.0.3": {
-      "integrity": "sha512-qsITQPfmvMOSAdeyZ+12I1c+CKSstAFAwu+97zrnWAbIr5u8wfsExUzCesVLC8NgHuRUqNN4Zy6UPWUTRGslcA==",
+    "form-data@4.0.4": {
+      "integrity": "sha512-KrGhL9Q4zjj0kiUt5OO4Mr/A/jlI2jDYs5eHBpYHPcBEVSiipAvn2Ko2HnPe20rmcuuvMHNdZFp+4IlGTMF0Ow==",
       "dependencies": [
         "asynckit",
         "combined-stream",
@@ -719,8 +722,8 @@
     "immer@10.1.1": {
       "integrity": "sha512-s2MPrmjovJcoMaHtx6K11Ra7oD05NT97w1IC5zpMkT6Atjr7H8LjaDd81iIxUYpMKSRRNMJE703M1Fhr/TctHw=="
     },
-    "immutable@5.1.2": {
-      "integrity": "sha512-qHKXW1q6liAk1Oys6umoaZbDRqjcjgSrbnrifHsfsttza7zcvRAsL7mMV6xWcyhwQy7Xj5v4hhbr6b+iDYwlmQ=="
+    "immutable@5.1.3": {
+      "integrity": "sha512-+chQdDfvscSF1SJqv2gn4SRO2ZyS3xL3r7IW/wWEEzrzLisnOlKiQu5ytC/BVNcS15C39WT2Hg/bjKjDMcu+zg=="
     },
     "inherits@2.0.4": {
       "integrity": "sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ=="
@@ -905,8 +908,20 @@
     "longest-streak@3.1.0": {
       "integrity": "sha512-9Ri+o0JYgehTaVBBDoMqIl8GXtbWg711O3srftcHhZ0dqnETqLaoIK0x17fUw9rFSlK/0NlsKe0Ahhyl5pXE2g=="
     },
+    "markdown-table@3.0.4": {
+      "integrity": "sha512-wiYz4+JrLyb/DqW2hkFJxP7Vd7JuTDm77fvbM8VfEQdmSMqcImWeeRbHwZjBjIFki/VaMK2BhFi7oUUZeM5bqw=="
+    },
     "math-intrinsics@1.1.0": {
       "integrity": "sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g=="
+    },
+    "mdast-util-find-and-replace@3.0.2": {
+      "integrity": "sha512-Tmd1Vg/m3Xz43afeNxDIhWRtFZgM2VLyaf4vSTYwudTyeuTneoL3qtWMA5jeLyz/O1vDJmmV4QuScFCA2tBPwg==",
+      "dependencies": [
+        "@types/mdast",
+        "escape-string-regexp",
+        "unist-util-is",
+        "unist-util-visit-parents"
+      ]
     },
     "mdast-util-from-markdown@2.0.2": {
       "integrity": "sha512-uZhTV/8NBuw0WHkPTrCqDOl0zVe1BIng5ZtHoDk49ME1qqcjYmmLmOf0gELgcRMxN4w2iuIeVso5/6QymSrgmA==",
@@ -923,6 +938,65 @@
         "micromark-util-symbol",
         "micromark-util-types",
         "unist-util-stringify-position"
+      ]
+    },
+    "mdast-util-gfm-autolink-literal@2.0.1": {
+      "integrity": "sha512-5HVP2MKaP6L+G6YaxPNjuL0BPrq9orG3TsrZ9YXbA3vDw/ACI4MEsnoDpn6ZNm7GnZgtAcONJyPhOP8tNJQavQ==",
+      "dependencies": [
+        "@types/mdast",
+        "ccount",
+        "devlop",
+        "mdast-util-find-and-replace",
+        "micromark-util-character"
+      ]
+    },
+    "mdast-util-gfm-footnote@2.1.0": {
+      "integrity": "sha512-sqpDWlsHn7Ac9GNZQMeUzPQSMzR6Wv0WKRNvQRg0KqHh02fpTz69Qc1QSseNX29bhz1ROIyNyxExfawVKTm1GQ==",
+      "dependencies": [
+        "@types/mdast",
+        "devlop",
+        "mdast-util-from-markdown",
+        "mdast-util-to-markdown",
+        "micromark-util-normalize-identifier"
+      ]
+    },
+    "mdast-util-gfm-strikethrough@2.0.0": {
+      "integrity": "sha512-mKKb915TF+OC5ptj5bJ7WFRPdYtuHv0yTRxK2tJvi+BDqbkiG7h7u/9SI89nRAYcmap2xHQL9D+QG/6wSrTtXg==",
+      "dependencies": [
+        "@types/mdast",
+        "mdast-util-from-markdown",
+        "mdast-util-to-markdown"
+      ]
+    },
+    "mdast-util-gfm-table@2.0.0": {
+      "integrity": "sha512-78UEvebzz/rJIxLvE7ZtDd/vIQ0RHv+3Mh5DR96p7cS7HsBhYIICDBCu8csTNWNO6tBWfqXPWekRuj2FNOGOZg==",
+      "dependencies": [
+        "@types/mdast",
+        "devlop",
+        "markdown-table",
+        "mdast-util-from-markdown",
+        "mdast-util-to-markdown"
+      ]
+    },
+    "mdast-util-gfm-task-list-item@2.0.0": {
+      "integrity": "sha512-IrtvNvjxC1o06taBAVJznEnkiHxLFTzgonUdy8hzFVeDun0uTjxxrRGVaNFqkU1wJR3RBPEfsxmU6jDWPofrTQ==",
+      "dependencies": [
+        "@types/mdast",
+        "devlop",
+        "mdast-util-from-markdown",
+        "mdast-util-to-markdown"
+      ]
+    },
+    "mdast-util-gfm@3.1.0": {
+      "integrity": "sha512-0ulfdQOM3ysHhCJ1p06l0b0VKlhU0wuQs3thxZQagjcjPrlFRqY215uZGHHJan9GEAXd9MbfPjFJz+qMkVR6zQ==",
+      "dependencies": [
+        "mdast-util-from-markdown",
+        "mdast-util-gfm-autolink-literal",
+        "mdast-util-gfm-footnote",
+        "mdast-util-gfm-strikethrough",
+        "mdast-util-gfm-table",
+        "mdast-util-gfm-task-list-item",
+        "mdast-util-to-markdown"
       ]
     },
     "mdast-util-mdx-expression@2.0.1": {
@@ -1029,6 +1103,78 @@
         "micromark-util-resolve-all",
         "micromark-util-subtokenize",
         "micromark-util-symbol",
+        "micromark-util-types"
+      ]
+    },
+    "micromark-extension-gfm-autolink-literal@2.1.0": {
+      "integrity": "sha512-oOg7knzhicgQ3t4QCjCWgTmfNhvQbDDnJeVu9v81r7NltNCVmhPy1fJRX27pISafdjL+SVc4d3l48Gb6pbRypw==",
+      "dependencies": [
+        "micromark-util-character",
+        "micromark-util-sanitize-uri",
+        "micromark-util-symbol",
+        "micromark-util-types"
+      ]
+    },
+    "micromark-extension-gfm-footnote@2.1.0": {
+      "integrity": "sha512-/yPhxI1ntnDNsiHtzLKYnE3vf9JZ6cAisqVDauhp4CEHxlb4uoOTxOCJ+9s51bIB8U1N1FJ1RXOKTIlD5B/gqw==",
+      "dependencies": [
+        "devlop",
+        "micromark-core-commonmark",
+        "micromark-factory-space",
+        "micromark-util-character",
+        "micromark-util-normalize-identifier",
+        "micromark-util-sanitize-uri",
+        "micromark-util-symbol",
+        "micromark-util-types"
+      ]
+    },
+    "micromark-extension-gfm-strikethrough@2.1.0": {
+      "integrity": "sha512-ADVjpOOkjz1hhkZLlBiYA9cR2Anf8F4HqZUO6e5eDcPQd0Txw5fxLzzxnEkSkfnD0wziSGiv7sYhk/ktvbf1uw==",
+      "dependencies": [
+        "devlop",
+        "micromark-util-chunked",
+        "micromark-util-classify-character",
+        "micromark-util-resolve-all",
+        "micromark-util-symbol",
+        "micromark-util-types"
+      ]
+    },
+    "micromark-extension-gfm-table@2.1.1": {
+      "integrity": "sha512-t2OU/dXXioARrC6yWfJ4hqB7rct14e8f7m0cbI5hUmDyyIlwv5vEtooptH8INkbLzOatzKuVbQmAYcbWoyz6Dg==",
+      "dependencies": [
+        "devlop",
+        "micromark-factory-space",
+        "micromark-util-character",
+        "micromark-util-symbol",
+        "micromark-util-types"
+      ]
+    },
+    "micromark-extension-gfm-tagfilter@2.0.0": {
+      "integrity": "sha512-xHlTOmuCSotIA8TW1mDIM6X2O1SiX5P9IuDtqGonFhEK0qgRI4yeC6vMxEV2dgyr2TiD+2PQ10o+cOhdVAcwfg==",
+      "dependencies": [
+        "micromark-util-types"
+      ]
+    },
+    "micromark-extension-gfm-task-list-item@2.1.0": {
+      "integrity": "sha512-qIBZhqxqI6fjLDYFTBIa4eivDMnP+OZqsNwmQ3xNLE4Cxwc+zfQEfbs6tzAo2Hjq+bh6q5F+Z8/cksrLFYWQQw==",
+      "dependencies": [
+        "devlop",
+        "micromark-factory-space",
+        "micromark-util-character",
+        "micromark-util-symbol",
+        "micromark-util-types"
+      ]
+    },
+    "micromark-extension-gfm@3.0.0": {
+      "integrity": "sha512-vsKArQsicm7t0z2GugkCKtZehqUm31oeGBV/KVSorWSy8ZlNAv7ytjFhvaryUiCUJYqs+NoE6AFhpQvBTM6Q4w==",
+      "dependencies": [
+        "micromark-extension-gfm-autolink-literal",
+        "micromark-extension-gfm-footnote",
+        "micromark-extension-gfm-strikethrough",
+        "micromark-extension-gfm-table",
+        "micromark-extension-gfm-tagfilter",
+        "micromark-extension-gfm-task-list-item",
+        "micromark-util-combine-extensions",
         "micromark-util-types"
       ]
     },
@@ -1198,14 +1344,14 @@
         "mime-db@1.54.0"
       ]
     },
-    "molstar@4.18.0_react@19.1.0_react-dom@19.1.0__react@19.1.0": {
-      "integrity": "sha512-mU2da9laqdFtGKGCqOyFywCAxuvRYevOMFjrX/6RwIUd+HB5yOpbLXXRA5ErVadHXLTlEYOutCzNv+AwvmrfmA==",
+    "molstar@5.0.0-dev.0_react@19.1.0_react-dom@19.1.0__react@19.1.0": {
+      "integrity": "sha512-j1P7Px0RJL9/oA/vCL2hS7xaplzIuSg1d4hwRpe3Fz5dRrjXfEkX9ZbsCMUfWRpMjHSlA9LnK7wk5ycYKMREiQ==",
       "dependencies": [
         "@types/argparse",
         "@types/benchmark",
         "@types/compression",
         "@types/express",
-        "@types/node@18.19.111",
+        "@types/node@18.19.120",
         "@types/node-fetch",
         "@types/swagger-ui-dist",
         "argparse",
@@ -1220,6 +1366,7 @@
         "react",
         "react-dom",
         "react-markdown",
+        "remark-gfm",
         "rxjs",
         "swagger-ui-dist",
         "tslib",
@@ -1283,8 +1430,8 @@
         "ee-first"
       ]
     },
-    "on-headers@1.0.2": {
-      "integrity": "sha512-pZAE+FJLoyITytdqK0U5s+FIpjN0JP3OzFi/u8Rx+EV5/W+JTWGXG8xFzevE7AjBfDqHv/8vL8qQsIhHnqRkrA=="
+    "on-headers@1.1.0": {
+      "integrity": "sha512-737ZY3yNnXy37FHkQxPzt4UZ2UWPWiCZWLvFZ4fu5cueciegX0zGPnrlY6bwRg4FdQOe9YU8MkmJwGhoMybl8A=="
     },
     "once@1.4.0": {
       "integrity": "sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==",
@@ -1356,7 +1503,7 @@
         "scheduler"
       ]
     },
-    "react-markdown@10.1.0_@types+react@19.1.7_react@19.1.0": {
+    "react-markdown@10.1.0_@types+react@19.1.8_react@19.1.0": {
       "integrity": "sha512-qKxVopLT/TyA6BX3Ue5NwabOsAzm0Q7kAPwq6L+wWDwisYs7R8vZ0nRXqq6rkueboxpkjvLGU9fWifiX/ZZFxQ==",
       "dependencies": [
         "@types/hast",
@@ -1401,6 +1548,17 @@
         "set-function-name"
       ]
     },
+    "remark-gfm@4.0.1": {
+      "integrity": "sha512-1quofZ2RQ9EWdeN34S79+KExV1764+wCUGop5CPL1WGdD0ocPpu91lzPGbwWMECpEpd42kJGQwzRfyov9j4yNg==",
+      "dependencies": [
+        "@types/mdast",
+        "mdast-util-gfm",
+        "micromark-extension-gfm",
+        "remark-parse",
+        "remark-stringify",
+        "unified"
+      ]
+    },
     "remark-parse@11.0.0": {
       "integrity": "sha512-FCxlKLNGknS5ba/1lmpYijMUzX2esxW5xQqjWxw2eHFfS2MSdaHVINFmhjo+qN1WhZhNimq0dZATN9pH0IDrpA==",
       "dependencies": [
@@ -1418,6 +1576,14 @@
         "mdast-util-to-hast",
         "unified",
         "vfile"
+      ]
+    },
+    "remark-stringify@11.0.0": {
+      "integrity": "sha512-1OSmLd3awB/t8qdoEOMazZkNsfVTeY4fTsgzcQFdXNq8ToTN4ZGwrMnlda4K6smTFKD+GRV6O48i6Z4iKgPPpw==",
+      "dependencies": [
+        "@types/mdast",
+        "mdast-util-to-markdown",
+        "unified"
       ]
     },
     "router@2.2.0": {
@@ -1614,20 +1780,20 @@
         "character-entities-legacy"
       ]
     },
-    "style-to-js@1.1.16": {
-      "integrity": "sha512-/Q6ld50hKYPH3d/r6nr117TZkHR0w0kGGIVfpG9N6D8NymRPM9RqCUv4pRpJ62E5DqOYx2AFpbZMyCPnjQCnOw==",
+    "style-to-js@1.1.17": {
+      "integrity": "sha512-xQcBGDxJb6jjFCTzvQtfiPn6YvvP2O8U1MDIPNfJQlWMYfktPy+iGsHE7cssjs7y84d9fQaK4UF3RIJaAHSoYA==",
       "dependencies": [
         "style-to-object"
       ]
     },
-    "style-to-object@1.0.8": {
-      "integrity": "sha512-xT47I/Eo0rwJmaXC4oilDGDWLohVhR6o/xAQcPQN8q6QBuZVL8qMYL85kLmST5cPjAorwvqIA4qXTRQoYHaL6g==",
+    "style-to-object@1.0.9": {
+      "integrity": "sha512-G4qppLgKu/k6FwRpHiGiKPaPTFcG3g4wNVX/Qsfu+RqQM30E7Tyu/TEgxcL9PNLF5pdRLwQdE3YKKf+KF2Dzlw==",
       "dependencies": [
         "inline-style-parser"
       ]
     },
-    "swagger-ui-dist@5.24.1": {
-      "integrity": "sha512-ITeWc7CCAfK53u8jnV39UNqStQZjSt+bVYtJHsOEL3vVj/WV9/8HmsF8Ej4oD8r+Xk1HpWyeW/t59r1QNeAcUQ==",
+    "swagger-ui-dist@5.27.0": {
+      "integrity": "sha512-tS6LRyBhY6yAqxrfsA9IYpGWPUJOri6sclySa7TdC7XQfGLvTwDY531KLgfQwHEtQsn+sT4JlUspbeQDBVGWig==",
       "dependencies": [
         "@scarf/scarf"
       ]
@@ -1779,8 +1945,8 @@
     "vary@1.1.2": {
       "integrity": "sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg=="
     },
-    "vfile-message@4.0.2": {
-      "integrity": "sha512-jRDZ1IMLttGj41KcZvlrYAaI3CfqpLpfpf+Mfig13viT6NKvRzWZ+lXz0Y5D60w6uJIBAOGq9mSHf0gktF0duw==",
+    "vfile-message@4.0.3": {
+      "integrity": "sha512-QTHzsGd1EhbZs4AsQ20JX1rC3cOlt/IWJruk893DfLRr57lcnOeMaWG4K0JrRta4mIJZKth2Au3mM3u03/JWKw==",
       "dependencies": [
         "@types/unist@3.0.3",
         "unist-util-stringify-position"
@@ -1860,25 +2026,129 @@
     }
   },
   "redirects": {
-    "https://esm.sh/fp-ts@^2.5.0/es6/Either?target=denonext": "https://esm.sh/fp-ts@2.16.10/es6/Either?target=denonext",
-    "https://esm.sh/io-ts@^2.2.22/PathReporter?target=denonext": "https://esm.sh/io-ts@2.2.22/PathReporter?target=denonext",
-    "https://esm.sh/io-ts@^2.2.22?target=denonext": "https://esm.sh/io-ts@2.2.22?target=denonext"
+    "https://cdn.skypack.dev/molstar@4.4.1/lib/extensions/mvs/mvs-data": "https://cdn.skypack.dev/new/molstar@v4.4.1/dist=es2019/lib/extensions/mvs/mvs-data",
+    "https://cdn.skypack.dev/molstar@4.4.1/lib/mol-math/linear-algebra/3d/vec3": "https://cdn.skypack.dev/new/molstar@v4.4.1/dist=es2019/lib/mol-math/linear-algebra/3d/vec3",
+    "https://cdn.skypack.dev/molstar@4.4.1/lib/mol-util/zip/zip": "https://cdn.skypack.dev/new/molstar@v4.4.1/dist=es2019/lib/mol-util/zip/zip",
+    "https://cdn.skypack.dev/new/molstar@v4.4.1/dist=es2019/lib/extensions/mvs/mvs-data": "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/extensions/mvs/mvs-data.js",
+    "https://cdn.skypack.dev/new/molstar@v4.4.1/dist=es2019/lib/mol-math/linear-algebra/3d/vec3": "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-math/linear-algebra/3d/vec3.js",
+    "https://cdn.skypack.dev/new/molstar@v4.4.1/dist=es2019/lib/mol-util/zip/zip": "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/zip/zip.js",
+    "https://esm.sh/fp-ts@^2.5.0/es6/Either?target=denonext": "https://esm.sh/fp-ts@2.16.10/es6/Either?target=denonext"
   },
   "remote": {
+    "https://cdn.skypack.dev/-/fp-ts@v2.16.9-gJHi8Cj0Lq1Nx3Yi76kK/dist=es2019,mode=imports/unoptimized/es6/Applicative.js": "8f5d284fc64acafcce1804199f0fc81227cac5db2593f752463aac7b11bde20e",
+    "https://cdn.skypack.dev/-/fp-ts@v2.16.9-gJHi8Cj0Lq1Nx3Yi76kK/dist=es2019,mode=imports/unoptimized/es6/Apply.js": "8dd11d785d214487f0e57a404faffc0a001686a57be335076e2a7235a1492e79",
+    "https://cdn.skypack.dev/-/fp-ts@v2.16.9-gJHi8Cj0Lq1Nx3Yi76kK/dist=es2019,mode=imports/unoptimized/es6/Chain.js": "ecbc9e429757405acdecffcc3d40686879d8dd563d8c936a8a3e973f76239e1d",
+    "https://cdn.skypack.dev/-/fp-ts@v2.16.9-gJHi8Cj0Lq1Nx3Yi76kK/dist=es2019,mode=imports/unoptimized/es6/ChainRec.js": "f1e2f9859fd1e54d4e40bbaa5bf274c184ea88103323ab2eaf2491c3b21e2ac8",
+    "https://cdn.skypack.dev/-/fp-ts@v2.16.9-gJHi8Cj0Lq1Nx3Yi76kK/dist=es2019,mode=imports/unoptimized/es6/Either.js": "9f92d1c4a01bdbbc7ec488679d4f6dcd279690688fe8e914cbb2d846de5be486",
+    "https://cdn.skypack.dev/-/fp-ts@v2.16.9-gJHi8Cj0Lq1Nx3Yi76kK/dist=es2019,mode=imports/unoptimized/es6/FromEither.js": "e0405d07837545b7095d5b52046540c1e8b3102276cd8273bad7edbcab6f4a2c",
+    "https://cdn.skypack.dev/-/fp-ts@v2.16.9-gJHi8Cj0Lq1Nx3Yi76kK/dist=es2019,mode=imports/unoptimized/es6/Functor.js": "531f7c0fc1521effb737c5c934210a91399bdfd5d66969b1cdcc25a07bbaf978",
+    "https://cdn.skypack.dev/-/fp-ts@v2.16.9-gJHi8Cj0Lq1Nx3Yi76kK/dist=es2019,mode=imports/unoptimized/es6/Separated.js": "0ea0ccdc99bcf432a0ca76e2ceb3f23868507ba11cf6fe453ec384ff03e89b2c",
+    "https://cdn.skypack.dev/-/fp-ts@v2.16.9-gJHi8Cj0Lq1Nx3Yi76kK/dist=es2019,mode=imports/unoptimized/es6/Witherable.js": "aa9c920ba25f491791db02c1f60e92a0c7c64955282fd8c5059d2450dc50bb4b",
+    "https://cdn.skypack.dev/-/fp-ts@v2.16.9-gJHi8Cj0Lq1Nx3Yi76kK/dist=es2019,mode=imports/unoptimized/es6/function.js": "382016b2f948a743961c9cde30a40024d50cbd388290eac164b82d1164ced08f",
+    "https://cdn.skypack.dev/-/fp-ts@v2.16.9-gJHi8Cj0Lq1Nx3Yi76kK/dist=es2019,mode=imports/unoptimized/es6/internal.js": "b943b1271b0b432de7e02ea0b54da7a95647ee79b2914f235c84629bfda7252d",
+    "https://cdn.skypack.dev/-/io-ts@v2.2.22-NbqBGOLZ8PQDVsLLMEaH/dist=es2019,mode=imports/optimized/io-ts.js": "f08d204f2723d97d9330d4092312b14db22bd338f33368a44ce8606095795a49",
+    "https://cdn.skypack.dev/-/io-ts@v2.2.22-NbqBGOLZ8PQDVsLLMEaH/dist=es2019,mode=imports/unoptimized/es6/PathReporter.js": "1b1421270c49421dc105795e91156aa1a355d3ffade0782b35b66136ac4656ba",
+    "https://cdn.skypack.dev/-/io-ts@v2.2.22-NbqBGOLZ8PQDVsLLMEaH/dist=es2019,mode=imports/unoptimized/es6/index.js": "50857082f6b453d3eeed5f47ebfbd070ac45db2f3bba87af37c11849d48a481f",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/extensions/mvs/helpers/utils.js": "1c17eb5371e9d881fcfed6e42283ea508536d756a542254b3252edb2323e3d87",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/extensions/mvs/mvs-data.js": "46697a4019d490d3cf1b162392b9c1809ff4608d2834785360f5e92ecd44daac",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/extensions/mvs/tree/generic/params-schema.js": "d6320efb500b55ac7a3a3fe4bd46f4979765147ea97b0c32f2c2cbc81319180b",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/extensions/mvs/tree/generic/tree-schema.js": "db68b21040c4606000e75109abc7af3a756033f14f404bcb31c7f33f08cb9e8b",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/extensions/mvs/tree/generic/tree-utils.js": "b88d1ba7a3937759a4f803c5e7a44e2b9dfd8226f5d7b1111713378f9226ac81",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/extensions/mvs/tree/mvs/mvs-builder.js": "3225a766e0cd0768e099df0124d049b2b436e94f75844f00c9d3bb16b3672ca3",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/extensions/mvs/tree/mvs/mvs-defaults.js": "debeda34999639b2218011e388285e448a3d13b73811582f31b281db42d79b52",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/extensions/mvs/tree/mvs/mvs-tree.js": "907ceb48a520da19cab6a7820852808d65af889fb9b4efe4db2d1b4051628ca0",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/extensions/mvs/tree/mvs/param-types.js": "21698fb67c8d3f20325b21487d20aeb8abe94aff10064c91c13fc1d73807a06c",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/db.js": "930ef0bfd82b01d95f0a0e17420fbdbe3188d9530ae3b255d72053a93ee0446c",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/db/column-helpers.js": "9188f5b50d05f84d8a2c7780b7ca5cbf81e55dde238527c982919c928a39c5ac",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/db/column.js": "1eb1419b6a1f6ac118cbfa540bb42fdc6b5c5a54930776137b76e9fdb821cb0a",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/db/database.js": "5c99f876e62ba9ad9d3eb4ec4cbaa2919d550b568a86a53c45e834a6519da139",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/db/table.js": "c53c4a7e4a990a30d87e3ff4b042dcbfdbf63fad535d0b742ec816cf87bbb486",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/int.js": "30bb1b87372d3fe0386b91412eae7f16145c6e9b6066a9e9d2b40b7d3aa45232",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/int/impl/interval.js": "de30c995aaaed3daf787554efdeaa19948aff03f0e40872e711856d431c7fc2b",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/int/impl/ordered-set.js": "0b73a7d9cc9c958158216844631516f17e068c7ea160c01208d016136701f183",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/int/impl/segmentation.js": "dd20f89c60e0d840a6e34e538ea7a9cfd99da64ac2a703ef7f319eb57af6b93e",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/int/impl/sorted-array.js": "4a58e900930a9ab08fff8a826b978f3c166cee96a6698e915bfbb8dcd7350c13",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/int/interval.js": "4e057ae903bf17ef98a6c3b0c2d1cc20880d461308a777ff2aab039face50d92",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/int/linked-index.js": "0fe1e12fbc39c088cf4990c6b87e1fa70e73d1430aa85fc621d97770a9626414",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/int/map.js": "382cd58a01a563915d17b77af6cdf4ab6195cc8b6856cd3b611e850b6347a635",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/int/ordered-set.js": "f905192c8e1adc509f7c8f8c92774bcc741f2891dcb7bdef1605b87517ff42e7",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/int/segmentation.js": "934e4d8dbdb48a8e5d1ced078e8efad1e697d1e8350dcd4ee0dc8d6844c1026f",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/int/sorted-array.js": "7edb939d4d4405fbda1774bef0a65fe5e1f5ce9bfb493bd5ccf5d8f862068ee1",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/int/tuple.js": "2f9f87cafba72cd96206fc858cfadab0cab6521e564605f0056f314dfe1ccb22",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/iterator.js": "7e9e3991a72724771679768d31f8bf0339d208c90cdbec9e9ea5748922d995cb",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/util.js": "c1c343b355e8d0500a9c3dd950339119f63717fdffba966c65a10314351beddc",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/util/array.js": "8a3294c2339c49c0c4119ec129a8f18f7d0c4f892344ae239c97826756664c7f",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/util/buckets.js": "6cc07f336410ff9fe00c06a91d2b1be98c2eb37461ec01ca948c3c4ae746c8cb",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/util/chunked-array.js": "dbbddfb115fddb274943b1af6f2864b0dd4789af318459a261f1d929ea9fe020",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/util/equivalence-classes.js": "edddd3d5f8dfa7d26359ca296da869e6e812c91d47cd195da41fa3b71b809c26",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/util/grouping.js": "51db049b5e1b315cc4564482a0d01c640873ee606c23ea2018c6d19ce42308ad",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/util/hash-functions.js": "0d5123987e4dfbc51d875ccc55c658d0bff9d3d9d6ae9ebe9f303c0981e1c1dc",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-data/util/sort.js": "aaec98cb7b41a5a5ade0dcbba627a447d0d19f8cf2ce193bae6af3f050339a90",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-io/reader/common/text/number-parser.js": "e277621efccaffaa5562dbf4edc6027c6f9ad4a7a0fb701c51d5fadea3ae7a4f",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-math/interpolate.js": "7d2dd11df9c31c93f5fa1ad4b7d9b6ba8628b3f72cf9fcf2ca74b95e8fe8d02b",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-math/linear-algebra.js": "e5f7d623e3bd3b2aa1fc50d0db7e6cf00e349d396d23e10a6153ebc2a7e36b84",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-math/linear-algebra/3d.js": "75e536615658a9483483300e9a64544ab906898fdf2de7e2563a5b0138e7f710",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-math/linear-algebra/3d/common.js": "36e21b71e3098d729b4eb8a40d5ab04b9b56a32429b31e1f9489c52a602182ee",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-math/linear-algebra/3d/mat3.js": "9cc2e1aa131f292b7efb3d0e80731e83f4015c9ba26945446014725db044ce55",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-math/linear-algebra/3d/mat4.js": "8b9442c81f328db0d697ddda4a5889f753a11974ad778b8a94aa2fdefc189619",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-math/linear-algebra/3d/quat.js": "a5b0a573374aab28e41248976a37c0d970b15c18b8f8f36ef1a78d72b7f007e1",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-math/linear-algebra/3d/vec2.js": "0721baa06eb9240963431f0021b6c3a1c96f433dbc49ca040ccd0c74fb0b759f",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-math/linear-algebra/3d/vec3.js": "7f635009630ed5a01392a187bd89d195cc2ce158bbffd05c64376662a38a184a",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-math/linear-algebra/3d/vec4.js": "bb17dd197a622252e9d3f05e9b4765e82f0a1ec008ded75f26e314222be0dae6",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-math/linear-algebra/tensor.js": "8a94c316682313aea822aae52fcd8d328e08724df8977087d4d39896ea4bc2a3",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-math/misc.js": "58d9acf490d2bf68ce26faaceced629d72f1becc6c2b4b1fa6c57df8fe2b9ab4",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-task/execution/observable.js": "19f26b0a770a1343ad7aeec6a3fdb3ddd49aef053938a9d459fbb12318015c28",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-task/execution/progress.js": "a983be4d5c70eb6506ec4d8c453d9644e4359772b604c027e712100982d06987",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-task/execution/runtime-context.js": "453c90d0e482a3f5680c670131c2ac8d2510f94f8404ac6b3de147f9b8622008",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-task/execution/synchronous.js": "d66c249c6fa5b7a2f7b5f31f515bbe07f819151bea35075908155bf3400b7805",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-task/index.js": "27e7098c1e74d32106d4426351e91976e62717661a6a8ecd839daee1a454d745",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-task/task.js": "f2412476321c60a8d337faaf9419e509b30159823470e9f607346da5f036e0b0",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-task/util/chunked.js": "24ef9dbcf20e40933dc6873b624f24709a4f0d9148cb052ba782d51dedb02094",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-task/util/multistep.js": "c2f839a9900c005d2d9a466e40daa40520a08adf60e8a0ca188bf3e066628f28",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-task/util/scheduler.js": "965037c4054a359fcf52b5cc71a6ad3dd1c7227ca37fe56989c05706b74e1353",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-task/util/user-timing.js": "a4a065e933ab4468e6d9abc1a583e097c0438748ce70fb6268a75e93472ec224",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/bit-flags.js": "c1ef9e7e1e3a4722d20777fcbe0eb346580dd44f38c592e7dad089db6b53afc7",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/color/color.js": "8d461e854951b75dffbf0ba2a97be141e89d389e49de5bf7e8c56dd8f13d4e30",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/color/index.js": "91ef9ad55f91b16822a0758d28c2c8a6d783a8691c3748bc66f5ac877b772335",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/color/lists.js": "a36d2fbca13bf732d1cfcd8a959436584d999f2bb7a6ac438df49837df1b0684",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/color/names.js": "112f657d746549a4d2f3fc0379c52635cd425eb2bc5ea2e66bacb00710010c84",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/color/scale.js": "36fbfe0c68b5fffc938734ce599a1adb08ba07e12d37a921b314972a4d727d58",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/color/spaces/hcl.js": "9efb6fb05acee4c153716262e09c92af6ba6cd415989f31afb279776d8beaf9a",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/color/spaces/lab.js": "cfc23c02f0e4d7072f7cddcae0ed8b562a606a23ca9c6a638c24490749a9cb9b",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/debug.js": "3d978dce78f7cd11a2acabf7471f8f822fae84b4dc9cba050f227cafb5b83369",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/id-factory.js": "fe51e33eec161439e905d855e6de93a1f2c165fee1cfed2a5efd602fe5c1cba4",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/index.js": "2286de5d6200ff928ead449f8a7c620a84d4fc937670fd713f956aaab97dee9e",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/json.js": "d3d812808ce76f88dac05011bb1ca99e842afaaa46210d6117ff166b3ba43960",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/legend.js": "5432e2d7aadf8f2894507cc11dd19d42df06112367ec53d23375e74f0c3d439e",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/mask.js": "aaba7eb01d84ace88b8e8081928eeec13a9538663e2942afb7779de71d36dc2d",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/now.js": "e17eace197489933455b3a2cc415efc5224509b5238f771db4fb9da0d465bbdb",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/object.js": "a1d036c7412a227775ed66d221007da6997de2e4f6dda4d039cb95d9e2496814",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/string-builder.js": "812cdc52def0ef47352f8cfd6302d58a7af7a0f5dce175a7ebd5b9ac29172eaa",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/string.js": "68b123bcfd3a2589fb073222e130b70e67eba965d420304247d5c4e9a36092a5",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/type-helpers.js": "9fd1cd17614f55b06156ed8b9c5e9405a0c296680481fde2c3a6e3c0e367e6da",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/uuid.js": "5baa5b88af9dcc0654e2a9ff50cf587fca136077be43c5c21bfa5f8443eea054",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/value-cell.js": "4df7e42a2c6ae0fda815fe9e3e83bd71d94b693ad495b15c574d55230687e405",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/zip/bin.js": "05de210aadbb6aa08af174cc2dc6d3efe75387ba6c7f8d0e40776bd472d008e5",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/zip/checksum.js": "af80eb656b8dc870341fe9579dd9dc054ed162a1e88abe68027b7cc042f857e7",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/zip/deflate.js": "0a1a5e639aefdab80c6e7a5b33f109764a9633054086901871e7b5d5cea3d9c9",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/zip/huffman.js": "af41216013ff1752784bc714d983dbd487f63edf6c3223477a7a3f044b728116",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/zip/inflate.js": "37606466dad1224516deb70d98850b7cec0ea2e8995eaf0f28fd3200c664a059",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/zip/util.js": "73c31d36a22464c66f5aca6a96a112d951a311c984b8ee7b29d5e6dddbd8663e",
+    "https://cdn.skypack.dev/-/molstar@v4.4.1-Iz1DBuMmmBazk2CJeHZj/dist=es2019,mode=imports/unoptimized/lib/mol-util/zip/zip.js": "dd5b294db4c0ff1a38e385bbd5acbfeeb63444a2c53a6feaf831288dcc9a5de2",
     "https://esm.sh/fp-ts@2.16.10/denonext/es6/Either.mjs": "5938b0979f0bfb8359212be1db6858a083ca9ec9e4d8bc6d69474ba3152b3a55",
     "https://esm.sh/fp-ts@2.16.10/es6/Either?target=denonext": "fa996436f0a7426e78b1fac4cdfe1eaadf1d1430ec1cec9c4fef036504b30caf",
-    "https://esm.sh/io-ts@2.2.22/PathReporter?target=denonext": "8e8eb82017ef49e68bb548a63fa5378c09d8cca42c6945216296dca654cb59bb",
+    "https://esm.sh/io-ts@2.2.22": "a7a597df510bc3a929f9c376ab3eea56fc708e9c1e113ad8cbfbc572db123b0b",
+    "https://esm.sh/io-ts@2.2.22/PathReporter": "8e8eb82017ef49e68bb548a63fa5378c09d8cca42c6945216296dca654cb59bb",
     "https://esm.sh/io-ts@2.2.22/denonext/PathReporter.mjs": "dbf2a220f51fb358b62963c914abdad7f42ec09b0b18af8d8bf9d7adde030ab1",
     "https://esm.sh/io-ts@2.2.22/denonext/io-ts.mjs": "00af6a23053420731915c99166dee116fa5f1b353e4b0a0921328692d160dfc5",
-    "https://esm.sh/io-ts@2.2.22?target=denonext": "a7a597df510bc3a929f9c376ab3eea56fc708e9c1e113ad8cbfbc572db123b0b",
-    "https://esm.sh/molstar@4.18.0/denonext/lib/extensions/mvs/mvs-data.mjs": "9948f8f1e601a0312a5cf3c2fe97af99acbd1cc1ae4899c8e55cdffe7db2f316",
-    "https://esm.sh/molstar@4.18.0/denonext/lib/mol-data/util.mjs": "f27ffb05af7b523fb945b2045d30a3dbf55e8b5055decfff1a400a72cea178a5",
-    "https://esm.sh/molstar@4.18.0/denonext/lib/mol-math/linear-algebra.mjs": "bde135bc288e05c275f3bc152c6fbeddf0a5adc219db46a8f54d4bfcbb1420bc",
-    "https://esm.sh/molstar@4.18.0/denonext/lib/mol-math/linear-algebra/3d/vec3.mjs": "be9328866448ff683ac36ed7d224b572d37e95943eaf0a7c5347e08b3990aaaf",
-    "https://esm.sh/molstar@4.18.0/denonext/lib/mol-util/zip/zip.mjs": "6ec8f9774eff5eb6dbfe7c4477a730802aa705ad6b2ae775d838094d6304d3fa",
-    "https://esm.sh/molstar@4.18.0/lib/extensions/mvs/mvs-data": "993bb9482ce7b6fa943a35e542c8d00ce053da7c47923f3c15fd04d865e9192e",
-    "https://esm.sh/molstar@4.18.0/lib/mol-math/linear-algebra/3d/vec3": "d78e5f160e704b6bfb09b7d3c070b958474796d4afd5d99e9f0ab6c0c3c0ce79",
-    "https://esm.sh/molstar@4.18.0/lib/mol-util/zip/zip": "dd786df7791416261292157e913cb3380b9066ad822ef4e69b2e1d0f8c8e6489"
+    "https://esm.sh/molstar@5.0.0-dev.0/X-ZWlvLXRz/denonext/lib/extensions/mvs/mvs-data.mjs": "01f400898d70354f28e10165305d62965b3852067b3403c676e2c07260ef0946",
+    "https://esm.sh/molstar@5.0.0-dev.0/X-ZWlvLXRz/denonext/lib/mol-data/util.mjs": "89257e559f2c12dc5fb62be25aa88d605bfa52af09d6aa99835ff1175f1422e5",
+    "https://esm.sh/molstar@5.0.0-dev.0/X-ZWlvLXRz/denonext/lib/mol-math/linear-algebra.mjs": "259d07200a0539c3c3694d5dda9032ad4a0da401f840dde397bd75b7e4d255c6",
+    "https://esm.sh/molstar@5.0.0-dev.0/X-ZWlvLXRz/denonext/lib/mol-math/linear-algebra/3d/vec3.mjs": "2b9b4bc064a9192d1daacbdc13bc0e39f0cc63fdc0548147c04a3380e36fb476",
+    "https://esm.sh/molstar@5.0.0-dev.0/X-ZWlvLXRz/denonext/lib/mol-util/zip/zip.mjs": "9aab24bbe31f0a97973d259c7bd06843b02bbbb05442f42e357c262fd180b605",
+    "https://esm.sh/molstar@5.0.0-dev.0/lib/extensions/mvs/mvs-data?external=io-ts": "3ac43881f4b0f107bfc41bd848c72fb8f7d1f394c682530057111b35eee85c79",
+    "https://esm.sh/molstar@5.0.0-dev.0/lib/mol-math/linear-algebra/3d/vec3?external=io-ts": "b2a6fb8000a5af982a1d31faf9218b1deebb56b1d3fb20c4d51fb18759057094",
+    "https://esm.sh/molstar@5.0.0-dev.0/lib/mol-util/zip/zip?external=io-ts": "2c01a1f726154bd28e4c5fe7a948612ec00136f35535ed4bc5e082aa902cdf02"
   },
   "workspace": {
     "dependencies": [

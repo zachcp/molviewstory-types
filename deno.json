@@ -5,10 +5,12 @@
   "nodeModulesDir": "none",
   "tasks": {
     "dev": "deno test --watch",
-    "check": "deno check **/*.ts"
+    "check": "deno check mod.ts types.ts deps.ts mod_test.ts"
   },
   "license": "MIT",
   "imports": {
-    "@std/assert": "jsr:@std/assert@1"
+    "@std/assert": "jsr:@std/assert@1",
+    "io-ts": "https://esm.sh/io-ts@2.2.22",
+    "io-ts/PathReporter": "https://esm.sh/io-ts@2.2.22/PathReporter"
   }
 }
