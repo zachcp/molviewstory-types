@@ -99,6 +99,42 @@ return _run_builder();
 
 /**
  * Container for a complete story with version information
+ *
+ * ## Structure Overview
+ *
+ * ```
+ * StoryContainer {
+ *   version: 1
+ *   story: Story {
+ *     metadata: StoryMetadata
+ *     javascript: string
+ *     scenes: SceneData[] {
+ *       id: string
+ *       header: string
+ *       key: string
+ *       description: string
+ *       javascript: string
+ *       camera?: CameraData
+ *       linger_duration_ms?: number
+ *       transition_duration_ms?: number
+ *     }
+ *     assets: SceneAsset[]
+ *   }
+ * }
+ * ```
+ *
+ * ## Generated Output Structure
+ *
+ * When no assets: Returns MVSData JSON
+ * When assets present: Returns Uint8Array (ZIP archive)
+ *
+ * ```
+ * MVSData {
+ *   kind: "multiple"
+ *   metadata: { title, timestamp, version }
+ *   snapshots: Snapshot[]
+ * }
+ * ```
  */
 export class StoryContainer {
   /** Version of the story format */
@@ -116,6 +152,41 @@ export class StoryContainer {
    */
   async generate(): Promise<MVSData | Uint8Array> {
     return await getMVSData(this.story);
+  }
+
+  /**
+   * Generates a complete HTML page for viewing the story
+   * @param options Optional configuration for the HTML output
+   * @returns HTML string ready to be saved or served
+   */
+  async generateStoriesHtml(options?: {
+    title?: string;
+    molstarVersion?: string;
+  }): Promise<string> {
+    const data = await this.generate();
+    const format = data instanceof Uint8Array ? "mvsx" : "mvsj";
+
+    let state;
+
+    if (data instanceof Uint8Array) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      state = `"base64,${(data as any).toBase64()}"`;
+    } else {
+      state = JSON.stringify(data);
+    }
+
+    const html = Template.replaceAll(
+      "{{version}}",
+      options?.molstarVersion ?? "5.0.0-dev.2",
+    )
+      .replace(
+        "{{title}}",
+        options?.title ?? this.story.metadata.title ?? "Untitled Story",
+      )
+      .replace("{{format}}", format)
+      .replace("{{state}}", state);
+
+    return html;
   }
 }
 
@@ -154,8 +225,29 @@ export type SceneAsset = {
 /**
  * Complete data for a single scene in the story
  *
- * similar to SnapshotMetadata in
- *  https://github.com/molstar/molstar/blob/master/src/extensions/mvs/mvs-data.ts
+ * ## Structure Overview
+ *
+ * ```
+ * SceneData {
+ *   id: string
+ *   header: string
+ *   key: string
+ *   description: string
+ *   javascript: string
+ *   camera?: CameraData {
+ *     mode: "perspective" | "orthographic"
+ *     target: [number, number, number]
+ *     position: [number, number, number]
+ *     up: [number, number, number]
+ *     fov: number
+ *   }
+ *   linger_duration_ms?: number
+ *   transition_duration_ms?: number
+ * }
+ * ```
+ *
+ * Similar to SnapshotMetadata in
+ * https://github.com/molstar/molstar/blob/master/src/extensions/mvs/mvs-data.ts
  */
 export type SceneData = {
   /** Unique identifier for the scene */
@@ -191,3 +283,83 @@ export type CameraData = {
   /** Field of view angle in degrees (for perspective mode) */
   fov: number;
 };
+
+const Template = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{title}}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #viewer {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 34%;
+            bottom: 0;
+        }
+
+        #controls {
+            position: absolute;
+            left: 66%;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            padding: 16px;
+            padding-bottom: 20px;
+            border: 1px solid #ccc;
+            border-left: none;
+            background: #F6F5F3;
+            z-index: -2;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        @media (orientation:portrait) {
+            #viewer {
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 40%;
+            }
+
+            #controls {
+                position: absolute;
+                left: 0;
+                top: 60%;
+                right: 0;
+                bottom: 0;
+                border-top: none;
+            }
+
+            .msp-viewport-controls-buttons {
+                display: none;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/molstar@{{version}}/build/mvs-stories/mvs-stories.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/molstar@{{version}}/build/mvs-stories/mvs-stories.css" />
+</head>
+<body>
+    <div id="viewer">
+        <mvs-stories-viewer></mvs-stories-viewer>
+    </div>
+    <div id="controls">
+        <mvs-stories-snapshot-markdown style="flex-grow: 1;"></ mvs-stories-snapshot-markdown>
+    </div>
+
+    <script>
+        var mvsData = {{state}};
+
+        mvsStories.loadFromData(mvsData, { format: '{{format}}' });
+    </script>
+</body>
+</html>`;

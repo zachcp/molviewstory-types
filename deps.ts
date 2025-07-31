@@ -1,9 +1,9 @@
-// deps.ts - Centralized external dependencies using esm.sh with external io-ts parameter
-export { Vec3 } from "https://esm.sh/molstar@5.0.0-dev.1/lib/mol-math/linear-algebra/3d/vec3";
-export { MVSData } from "https://esm.sh/molstar@5.0.0-dev.1/lib/extensions/mvs/mvs-data";
-export type { Snapshot } from "https://esm.sh/molstar@5.0.0-dev.1/lib/extensions/mvs/mvs-data";
+// deps.ts - Centralized external dependencies using npm: specifiers
+export { Vec3 } from "npm:molstar@5.0.0-dev.2/lib/mol-math/linear-algebra/3d/vec3.js";
+export { MVSData } from "npm:molstar@5.0.0-dev.2/lib/extensions/mvs/mvs-data.js";
+export type { Snapshot } from "npm:molstar@5.0.0-dev.2/lib/extensions/mvs/mvs-data.js";
 export {
   deflate,
   inflate,
   Zip,
-} from "https://esm.sh/molstar@5.0.0-dev.1/lib/mol-util/zip/zip";
+} from "npm:molstar@5.0.0-dev.2/lib/mol-util/zip/zip.js";

@@ -372,3 +372,46 @@ Deno.test("ComprehensiveStory container yields MVSData", async () => {
   assertEquals(typeof mvsData, "object");
   assertEquals(mvsData.kind, "multiple");
 });
+
+Deno.test("StoryContainer generates HTML template", async () => {
+  const container = new StoryContainer(ComprehensiveStory);
+  const html = await container.generateStoriesHtml();
+
+  // Verify HTML structure
+  assertEquals(typeof html, "string");
+
+  // Check for essential HTML elements
+  assertEquals(html.includes("<!DOCTYPE html>"), true);
+  assertEquals(html.includes('<html lang="en">'), true);
+  assertEquals(
+    html.includes(
+      "<title>Comprehensive Molecular Visualization Examples</title>",
+    ),
+    true,
+  );
+  assertEquals(
+    html.includes("<mvs-stories-viewer></mvs-stories-viewer>"),
+    true,
+  );
+  assertEquals(html.includes("mvsStories.loadFromData"), true);
+
+  // Check that the molstar version is included
+  assertEquals(html.includes("molstar@5.0.0-dev.2"), true);
+
+  // Check that the format is correct (should be mvsj since no assets)
+  assertEquals(html.includes("format: 'mvsj'"), true);
+});
+
+Deno.test("StoryContainer generates HTML with custom options", async () => {
+  const container = new StoryContainer(ComprehensiveStory);
+  const html = await container.generateStoriesHtml({
+    title: "Custom Test Title",
+    molstarVersion: "4.2.0",
+  });
+
+  // Verify custom title is used
+  assertEquals(html.includes("<title>Custom Test Title</title>"), true);
+
+  // Verify custom molstar version is used
+  assertEquals(html.includes("molstar@4.2.0"), true);
+});
