@@ -99,6 +99,42 @@ return _run_builder();
 
 /**
  * Container for a complete story with version information
+ *
+ * ## Structure Overview
+ *
+ * ```
+ * StoryContainer {
+ *   version: 1
+ *   story: Story {
+ *     metadata: StoryMetadata
+ *     javascript: string
+ *     scenes: SceneData[] {
+ *       id: string
+ *       header: string
+ *       key: string
+ *       description: string
+ *       javascript: string
+ *       camera?: CameraData
+ *       linger_duration_ms?: number
+ *       transition_duration_ms?: number
+ *     }
+ *     assets: SceneAsset[]
+ *   }
+ * }
+ * ```
+ *
+ * ## Generated Output Structure
+ *
+ * When no assets: Returns MVSData JSON
+ * When assets present: Returns Uint8Array (ZIP archive)
+ *
+ * ```
+ * MVSData {
+ *   kind: "multiple"
+ *   metadata: { title, timestamp, version }
+ *   snapshots: Snapshot[]
+ * }
+ * ```
  */
 export class StoryContainer {
   /** Version of the story format */
@@ -154,8 +190,29 @@ export type SceneAsset = {
 /**
  * Complete data for a single scene in the story
  *
- * similar to SnapshotMetadata in
- *  https://github.com/molstar/molstar/blob/master/src/extensions/mvs/mvs-data.ts
+ * ## Structure Overview
+ *
+ * ```
+ * SceneData {
+ *   id: string
+ *   header: string
+ *   key: string
+ *   description: string
+ *   javascript: string
+ *   camera?: CameraData {
+ *     mode: "perspective" | "orthographic"
+ *     target: [number, number, number]
+ *     position: [number, number, number]
+ *     up: [number, number, number]
+ *     fov: number
+ *   }
+ *   linger_duration_ms?: number
+ *   transition_duration_ms?: number
+ * }
+ * ```
+ *
+ * Similar to SnapshotMetadata in
+ * https://github.com/molstar/molstar/blob/master/src/extensions/mvs/mvs-data.ts
  */
 export type SceneData = {
   /** Unique identifier for the scene */
