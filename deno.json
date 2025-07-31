@@ -9,8 +9,6 @@
   },
   "license": "MIT",
   "imports": {
-    "@std/assert": "jsr:@std/assert@1",
-    "io-ts": "https://esm.sh/io-ts@2.2.22",
-    "io-ts/PathReporter": "https://esm.sh/io-ts@2.2.22/PathReporter"
+    "@std/assert": "jsr:@std/assert@1"
   }
 }
