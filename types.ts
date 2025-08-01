@@ -170,7 +170,9 @@ export class StoryContainer {
 
     if (data instanceof Uint8Array) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      state = `"base64,${(data as any).toBase64()}"`;
+      // state = `"base64,${(data as any).toBase64()}"`;
+      const base64 = btoa(String.fromCharCode.apply(null, Array.from(data)));
+      state = `"base64,${base64}"`;
     } else {
       state = JSON.stringify(data);
     }
