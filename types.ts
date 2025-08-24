@@ -1,7 +1,8 @@
 import {
+  decodeMsgPack,
   deflate,
   encodeMsgPack,
-  type inflate,
+  inflate,
   MVSData,
   type Snapshot,
   Task,
@@ -14,9 +15,10 @@ export { MVSData };
 
 function adjustedCameraPosition(camera: CameraData) {
   // MVS uses FOV-adjusted camera position, need to apply inverse here so it doesn't offset the view when loaded
-  const f = camera.mode === "orthographic"
-    ? 1 / (2 * Math.tan(camera.fov / 2))
-    : 1 / (2 * Math.sin(camera.fov / 2));
+  const f =
+    camera.mode === "orthographic"
+      ? 1 / (2 * Math.tan(camera.fov / 2))
+      : 1 / (2 * Math.sin(camera.fov / 2));
   const delta = Vec3.sub(
     Vec3(),
     camera.position as Vec3,
@@ -203,14 +205,9 @@ export class StoryContainer {
    * Prepares session data for efficient storage and transmission
    * @returns Promise resolving to compressed Uint8Array containing the story data
    */
-  async prepareSessionData(): Promise<Uint8Array> {
-    const container: StoryContainer = {
-      version: 1,
-      story: this.story,
-    };
-
-    // Using message pack for efficient encoding
-    const encoded = encodeMsgPack(container);
+  private async prepareSessionData(): Promise<Uint8Array> {
+    // Using message pack for efficient encoding - serialize the class instance directly
+    const encoded = encodeMsgPack(this);
     const deflated = await Task.create("Deflate Story Data", async (ctx) => {
       return await deflate(ctx, encoded, { level: 3 });
     }).run();
@@ -233,6 +230,100 @@ export class StoryContainer {
         `Data size ${data.length} bytes exceeds maximum allowed size of ${maxSize} bytes`,
       );
     }
+  }
+
+  /**
+   * Inflates (deserializes) binary story data back into a StoryContainer instance
+   * @param data Compressed Uint8Array containing the story data
+   * @returns Promise resolving to a StoryContainer instance
+   */
+  private static async inflate(data: Uint8Array): Promise<StoryContainer> {
+    // Inflate the compressed data
+    const inflated = await Task.create("Inflate Story Data", async (ctx) => {
+      return await inflate(ctx, data);
+    }).run();
+
+    // Decode from MessagePack
+    const decoded = decodeMsgPack(inflated) as { version: 1; story: Story };
+
+    // Create new StoryContainer instance
+    return new StoryContainer(decoded.story);
+  }
+
+  /**
+   * Exports the story as an .mvstory file for download or storage
+   *
+   * This method creates a compressed binary file containing the complete story data
+   * that can be saved to disk, transmitted, or stored for later use.
+   *
+   * @param filename The name for the exported file (extension optional)
+   * @returns Promise resolving to an object with the file data and filename
+   *
+   * @example
+   * ```typescript
+   * const container = new StoryContainer(myStory);
+   * const exported = await container.exportStory("my-molecular-story");
+   *
+   * // In browser environment - trigger download
+   * const blob = new Blob([exported.data], { type: 'application/octet-stream' });
+   * const url = URL.createObjectURL(blob);
+   * const link = document.createElement('a');
+   * link.href = url;
+   * link.download = exported.filename;
+   * link.click();
+   *
+   * // In Deno/Node - save to filesystem
+   * await Deno.writeFile(exported.filename, exported.data);
+   * ```
+   *
+   * @example
+   * ```typescript
+   * // The exported file can be loaded back later
+   * const fileData = await Deno.readFile("my-story.mvstory");
+   * const restoredContainer = await StoryContainer.importStory(fileData);
+   * ```
+   */
+  async exportStory(
+    filename: string,
+  ): Promise<{ data: Uint8Array; filename: string }> {
+    // Generate the story data using prepareSessionData (compressed binary format)
+    const storyData = await this.prepareSessionData();
+
+    // Ensure filename has .mvstory extension
+    const exportFilename = filename.endsWith(".mvstory")
+      ? filename
+      : `${filename}.mvstory`;
+
+    return {
+      data: storyData,
+      filename: exportFilename,
+    };
+  }
+
+  /**
+   * Imports a story from .mvstory file data
+   *
+   * This static method can be used to load a previously exported .mvstory file
+   * back into a StoryContainer instance.
+   *
+   * @param data Binary data from an .mvstory file
+   * @returns Promise resolving to a StoryContainer instance
+   *
+   * @example
+   * ```typescript
+   * // In Deno/Node - read from filesystem
+   * const fileData = await Deno.readFile("my-story.mvstory");
+   * const container = await StoryContainer.importStory(fileData);
+   *
+   * // In browser - from File input
+   * const file = fileInput.files[0]; // File from <input type="file">
+   * const arrayBuffer = await file.arrayBuffer();
+   * const uint8Array = new Uint8Array(arrayBuffer);
+   * const container = await StoryContainer.importStory(uint8Array);
+   * ```
+   */
+  static async importStory(data: Uint8Array): Promise<StoryContainer> {
+    return await this.inflate(data);
   }
 }
 

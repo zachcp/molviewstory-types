@@ -415,3 +415,129 @@ Deno.test("StoryContainer generates HTML with custom options", async () => {
   // Verify custom molstar version is used
   assertEquals(html.includes("molstar@4.2.0"), true);
 });
+
+Deno.test(
+  "StoryContainer round-trip serialization with export/import",
+  async () => {
+    const container = new StoryContainer(ComprehensiveStory);
+
+    // Export the container to binary data
+    const exported = await container.exportStory("test-roundtrip");
+    assertEquals(exported.data instanceof Uint8Array, true);
+    assertEquals(exported.data.length > 0, true);
+
+    // Import the binary data back to a StoryContainer
+    const restoredContainer = await StoryContainer.importStory(exported.data);
+    assertInstanceOf(restoredContainer, StoryContainer);
+
+    // Verify the restored container has the same story data
+    assertEquals(restoredContainer.version, 1);
+    assertEquals(
+      restoredContainer.story.metadata.title,
+      ComprehensiveStory.metadata.title,
+    );
+    assertEquals(
+      restoredContainer.story.scenes.length,
+      ComprehensiveStory.scenes.length,
+    );
+    assertEquals(
+      restoredContainer.story.scenes[0].id,
+      ComprehensiveStory.scenes[0].id,
+    );
+    assertEquals(
+      restoredContainer.story.scenes[0].header,
+      ComprehensiveStory.scenes[0].header,
+    );
+
+    // Verify the restored container can generate the same MVSData
+    const originalResult = await container.generate();
+    const restoredResult = await restoredContainer.generate();
+
+    assertInstanceOf(originalResult, Object);
+    assertInstanceOf(restoredResult, Object);
+
+    const originalMvsData = originalResult as any;
+    const restoredMvsData = restoredResult as any;
+
+    assertEquals(originalMvsData.kind, restoredMvsData.kind);
+    assertEquals(
+      originalMvsData.snapshots?.length,
+      restoredMvsData.snapshots?.length,
+    );
+  },
+);
+
+Deno.test("StoryContainer exportStory method", async () => {
+  const container = new StoryContainer(ComprehensiveStory);
+
+  // Export the story with a custom filename
+  const exported = await container.exportStory("test-story");
+
+  // Verify the exported data structure
+  assertEquals(typeof exported, "object");
+  assertEquals(typeof exported.filename, "string");
+  assertEquals(exported.filename, "test-story.mvstory");
+  assertEquals(exported.data instanceof Uint8Array, true);
+  assertEquals(exported.data.length > 0, true);
+
+  // Test that the exported data can be imported back to the original story
+  const restoredContainer = await StoryContainer.importStory(exported.data);
+  assertInstanceOf(restoredContainer, StoryContainer);
+  assertEquals(
+    restoredContainer.story.metadata.title,
+    ComprehensiveStory.metadata.title,
+  );
+});
+
+Deno.test(
+  "StoryContainer exportStory handles filename extensions",
+  async () => {
+    const container = new StoryContainer(ComprehensiveStory);
+
+    // Test filename without extension
+    const exported1 = await container.exportStory("my-story");
+    assertEquals(exported1.filename, "my-story.mvstory");
+
+    // Test filename with extension already present
+    const exported2 = await container.exportStory("my-story.mvstory");
+    assertEquals(exported2.filename, "my-story.mvstory");
+
+    // Test that both exports produce the same data
+    assertEquals(exported1.data.length, exported2.data.length);
+  },
+);
+
+Deno.test("StoryContainer importStory method", async () => {
+  const container = new StoryContainer(ComprehensiveStory);
+
+  // Export the story
+  const exported = await container.exportStory("test-import");
+
+  // Import the story back using the static method
+  const importedContainer = await StoryContainer.importStory(exported.data);
+
+  // Verify the imported container
+  assertInstanceOf(importedContainer, StoryContainer);
+  assertEquals(importedContainer.version, 1);
+  assertEquals(
+    importedContainer.story.metadata.title,
+    ComprehensiveStory.metadata.title,
+  );
+  assertEquals(
+    importedContainer.story.scenes.length,
+    ComprehensiveStory.scenes.length,
+  );
+
+  // Verify that both containers generate equivalent MVSData
+  const originalResult = await container.generate();
+  const importedResult = await importedContainer.generate();
+
+  const originalMvsData = originalResult as any;
+  const importedMvsData = importedResult as any;
+
+  assertEquals(originalMvsData.kind, importedMvsData.kind);
+  assertEquals(
+    originalMvsData.snapshots?.length,
+    importedMvsData.snapshots?.length,
+  );
+});
