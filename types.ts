@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {
   decodeMsgPack,
   deflate,
@@ -9,8 +10,21 @@ import {
   Vec3,
   Zip,
 } from "./deps.ts";
+=======
+import { Vec3 } from "molstar/vec3";
+import { MVSData, type Snapshot } from "molstar/mvs-data";
+import { deflate, inflate, Zip } from "molstar/zip";
+import { encodeMsgPack } from "molstar/msgpack-encode";
+import { decodeMsgPack } from "molstar/msgpack-decode";
+import { Task } from "molstar/task";
+>>>>>>> 752444f (Update API and Fix Types (#6))
 
-// Re-export MVSData for external use
+/**
+ * MVSData type from Molstar for molecular visualization snapshots.
+ * Re-exported for external use with story containers.
+ *
+ * @see {@link https://github.com/molstar/molstar/blob/master/src/extensions/mvs/mvs-data.ts}
+ */
 export { MVSData };
 
 function adjustedCameraPosition(camera: CameraData) {
@@ -152,6 +166,10 @@ export class StoryContainer {
   /** The story data */
   story: Story;
 
+  /**
+   * Creates a new StoryContainer instance
+   * @param story The story data to contain
+   */
   constructor(story: Story) {
     this.story = story;
   }
