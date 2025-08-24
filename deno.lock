@@ -2026,7 +2026,8 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@std/assert@1"
+      "jsr:@std/assert@1",
+      "npm:molstar@5.0.0-dev.8"
     ]
   }
 }

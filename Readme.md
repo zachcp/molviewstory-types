@@ -18,8 +18,13 @@ new StoryContainer(story: Story)
 
 #### Methods
 
-- `generate(): Promise<MVSData | Uint8Array>` - Generates MVS data. Returns
-  `MVSData` object if no assets, or `Uint8Array` (ZIP) if assets are present.
+- `generate(): Promise<MVSData | Uint8Array>` - Generates MVS data for the story, including all scenes and assets. Returns `MVSData` object if no assets, or `Uint8Array` (ZIP) if assets are present.
+
+- `generateStoriesHtml(options?: { title?: string; molstarVersion?: string }): Promise<string>` - Generates a complete HTML page for viewing the story. Returns HTML string ready to be saved or served.
+
+- `exportStory(filename: string): Promise<{ data: Uint8Array; filename: string }>` - Exports the story as an .mvstory file for download or storage. Creates a compressed binary file containing the complete story data.
+
+- `static importStory(data: Uint8Array): Promise<StoryContainer>` - Imports a story from .mvstory file data. Static method to load a previously exported .mvstory file back into a StoryContainer instance.
 
 ### Types
 
