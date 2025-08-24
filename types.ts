@@ -1,12 +1,12 @@
 import {
-  Vec3,
-  MVSData,
-  Snapshot,
   deflate,
-  inflate,
-  Zip,
   encodeMsgPack,
+  type inflate,
+  MVSData,
+  type Snapshot,
   Task,
+  Vec3,
+  Zip,
 } from "./deps.ts";
 
 // Re-export MVSData for external use
@@ -14,10 +14,9 @@ export { MVSData };
 
 function adjustedCameraPosition(camera: CameraData) {
   // MVS uses FOV-adjusted camera position, need to apply inverse here so it doesn't offset the view when loaded
-  const f =
-    camera.mode === "orthographic"
-      ? 1 / (2 * Math.tan(camera.fov / 2))
-      : 1 / (2 * Math.sin(camera.fov / 2));
+  const f = camera.mode === "orthographic"
+    ? 1 / (2 * Math.tan(camera.fov / 2))
+    : 1 / (2 * Math.sin(camera.fov / 2));
   const delta = Vec3.sub(
     Vec3(),
     camera.position as Vec3,
