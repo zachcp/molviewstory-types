@@ -1,7 +1,8 @@
 # mol-story-types
 
-TypeScript/Deno library providing type definitions and utilities for creating molecular visualization stories compatible with [Mol*](https://molstar.org/) MVS (Mol* Viewer State) format.
-
+TypeScript/Deno library providing type definitions and utilities for creating
+molecular visualization stories compatible with [Mol*](https://molstar.org/) MVS
+(Mol* Viewer State) format.
 
 ## API Reference
 
@@ -10,12 +11,15 @@ TypeScript/Deno library providing type definitions and utilities for creating mo
 Main class for creating and managing molecular stories.
 
 #### Constructor
+
 ```typescript
 new StoryContainer(story: Story)
 ```
 
 #### Methods
-- `generate(): Promise<MVSData | Uint8Array>` - Generates MVS data. Returns `MVSData` object if no assets, or `Uint8Array` (ZIP) if assets are present.
+
+- `generate(): Promise<MVSData | Uint8Array>` - Generates MVS data. Returns
+  `MVSData` object if no assets, or `Uint8Array` (ZIP) if assets are present.
 
 ### Types
 
@@ -30,9 +34,9 @@ new StoryContainer(story: Story)
 
 MIT
 
-
 ## Related Projects
 
 - [Mol*](https://molstar.org/) - Molecular visualization toolkit
-- [MVS Format](https://molstar.org/mol-view-spec/) - Mol* Viewer State specification
+- [MVS Format](https://molstar.org/mol-view-spec/) - Mol* Viewer State
+  specification
 - [MV-Stories](http://molstar.org/mol-view-stories/) - Live StoryBuilder

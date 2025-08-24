@@ -1,6 +1,6 @@
 import { assertEquals, assertInstanceOf } from "@std/assert";
-import { StoryContainer, Story, SceneData } from "./types.ts";
-import { MVSData } from "./deps.ts";
+import { type SceneData, type Story, StoryContainer } from "./types.ts";
+import type { MVSData } from "./deps.ts";
 
 export const ComprehensiveStory: Story = {
   metadata: { title: "Comprehensive Molecular Visualization Examples" },

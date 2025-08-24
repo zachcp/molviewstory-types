@@ -7,3 +7,6 @@ export {
   inflate,
   Zip,
 } from "npm:molstar@5.0.0-dev.8/lib/mol-util/zip/zip.js";
+
+export { encodeMsgPack } from "npm:molstar@5.0.0-dev.8/lib/mol-io/common/msgpack/encode.js";
+export { Task } from "npm:molstar@5.0.0-dev.8/lib/mol-task/task.js";
