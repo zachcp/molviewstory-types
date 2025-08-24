@@ -483,25 +483,6 @@ Deno.test("StoryContainer exportStory method", async () => {
   // Test that the exported data can be imported back to the original story
   const restoredContainer = await StoryContainer.importStory(exported.data);
   assertInstanceOf(restoredContainer, StoryContainer);
-<<<<<<< HEAD
-=======
-Deno.test("StoryContainer round-trip serialization with inflate", async () => {
-  const container = new StoryContainer(ComprehensiveStory);
-
-  // Export the story with a custom filename
-  const exported = await container.exportStory("test-story");
-
-  // Verify the exported data structure
-  assertEquals(typeof exported, "object");
-  assertEquals(typeof exported.filename, "string");
-  assertEquals(exported.filename, "test-story.mvstory");
-  assertEquals(exported.data instanceof Uint8Array, true);
-  assertEquals(exported.data.length > 0, true);
-
-  // Test that the exported data can be imported back to the original story
-  const restoredContainer = await StoryContainer.importStory(exported.data);
-  assertInstanceOf(restoredContainer, StoryContainer);
->>>>>>> 752444f (Update API and Fix Types (#6))
   assertEquals(
     restoredContainer.story.metadata.title,
     ComprehensiveStory.metadata.title,
@@ -558,28 +539,5 @@ Deno.test("StoryContainer importStory method", async () => {
   assertEquals(
     originalMvsData.snapshots?.length,
     importedMvsData.snapshots?.length,
-<<<<<<< HEAD
-=======
-  assertEquals(
-    importedContainer.story.metadata.title,
-    ComprehensiveStory.metadata.title,
-  );
-  assertEquals(
-    importedContainer.story.scenes.length,
-    ComprehensiveStory.scenes.length,
-  );
-
-  // Verify that both containers generate equivalent MVSData
-  const originalResult = await container.generate();
-  const importedResult = await importedContainer.generate();
-
-  const originalMvsData = originalResult as any;
-  const importedMvsData = importedResult as any;
-
-  assertEquals(originalMvsData.kind, importedMvsData.kind);
-  assertEquals(
-    originalMvsData.snapshots?.length,
-    importedMvsData.snapshots?.length,
->>>>>>> 752444f (Update API and Fix Types (#6))
   );
 });

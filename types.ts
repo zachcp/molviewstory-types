@@ -1,23 +1,9 @@
-<<<<<<< HEAD
-import {
-  decodeMsgPack,
-  deflate,
-  encodeMsgPack,
-  inflate,
-  MVSData,
-  type Snapshot,
-  Task,
-  Vec3,
-  Zip,
-} from "./deps.ts";
-=======
 import { Vec3 } from "molstar/vec3";
 import { MVSData, type Snapshot } from "molstar/mvs-data";
 import { deflate, inflate, Zip } from "molstar/zip";
 import { encodeMsgPack } from "molstar/msgpack-encode";
 import { decodeMsgPack } from "molstar/msgpack-decode";
 import { Task } from "molstar/task";
->>>>>>> 752444f (Update API and Fix Types (#6))
 
 /**
  * MVSData type from Molstar for molecular visualization snapshots.
