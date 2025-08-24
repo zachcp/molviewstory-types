@@ -1,4 +1,13 @@
-import { Vec3, MVSData, Snapshot, deflate, inflate, Zip } from "./deps.ts";
+import {
+  Vec3,
+  MVSData,
+  Snapshot,
+  deflate,
+  inflate,
+  Zip,
+  encodeMsgPack,
+  Task,
+} from "./deps.ts";
 
 // Re-export MVSData for external use
 export { MVSData };
@@ -189,6 +198,42 @@ export class StoryContainer {
       .replace("{{state}}", state);
 
     return html;
+  }
+
+  /**
+   * Prepares session data for efficient storage and transmission
+   * @returns Promise resolving to compressed Uint8Array containing the story data
+   */
+  async prepareSessionData(): Promise<Uint8Array> {
+    const container: StoryContainer = {
+      version: 1,
+      story: this.story,
+    };
+
+    // Using message pack for efficient encoding
+    const encoded = encodeMsgPack(container);
+    const deflated = await Task.create("Deflate Story Data", async (ctx) => {
+      return await deflate(ctx, encoded, { level: 3 });
+    }).run();
+
+    // Validate file size before proceeding
+    this.validateDataSize(deflated);
+
+    return deflated;
+  }
+
+  /**
+   * Validates that the data size is within acceptable limits
+   * @param data The data to validate
+   * @throws Error if data exceeds size limits
+   */
+  private validateDataSize(data: Uint8Array): void {
+    const maxSize = 50 * 1024 * 1024; // 50MB limit
+    if (data.length > maxSize) {
+      throw new Error(
+        `Data size ${data.length} bytes exceeds maximum allowed size of ${maxSize} bytes`,
+      );
+    }
   }
 }
 
