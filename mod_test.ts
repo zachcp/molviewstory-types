@@ -415,3 +415,51 @@ Deno.test("StoryContainer generates HTML with custom options", async () => {
   // Verify custom molstar version is used
   assertEquals(html.includes("molstar@4.2.0"), true);
 });
+
+Deno.test("StoryContainer round-trip serialization with inflate", async () => {
+  const container = new StoryContainer(ComprehensiveStory);
+
+  // Serialize the container to binary data
+  const binaryData = await container.prepareSessionData();
+  assertEquals(binaryData instanceof Uint8Array, true);
+  assertEquals(binaryData.length > 0, true);
+
+  // Deserialize the binary data back to a StoryContainer
+  const restoredContainer = await StoryContainer.inflate(binaryData);
+  assertInstanceOf(restoredContainer, StoryContainer);
+
+  // Verify the restored container has the same story data
+  assertEquals(restoredContainer.version, 1);
+  assertEquals(
+    restoredContainer.story.metadata.title,
+    ComprehensiveStory.metadata.title,
+  );
+  assertEquals(
+    restoredContainer.story.scenes.length,
+    ComprehensiveStory.scenes.length,
+  );
+  assertEquals(
+    restoredContainer.story.scenes[0].id,
+    ComprehensiveStory.scenes[0].id,
+  );
+  assertEquals(
+    restoredContainer.story.scenes[0].header,
+    ComprehensiveStory.scenes[0].header,
+  );
+
+  // Verify the restored container can generate the same MVSData
+  const originalResult = await container.generate();
+  const restoredResult = await restoredContainer.generate();
+
+  assertInstanceOf(originalResult, Object);
+  assertInstanceOf(restoredResult, Object);
+
+  const originalMvsData = originalResult as any;
+  const restoredMvsData = restoredResult as any;
+
+  assertEquals(originalMvsData.kind, restoredMvsData.kind);
+  assertEquals(
+    originalMvsData.snapshots?.length,
+    restoredMvsData.snapshots?.length,
+  );
+});

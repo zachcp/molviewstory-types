@@ -1,7 +1,8 @@
 import {
+  decodeMsgPack,
   deflate,
   encodeMsgPack,
-  type inflate,
+  inflate,
   MVSData,
   type Snapshot,
   Task,
@@ -14,10 +15,9 @@ export { MVSData };
 
 function adjustedCameraPosition(camera: CameraData) {
   // MVS uses FOV-adjusted camera position, need to apply inverse here so it doesn't offset the view when loaded
-  const f =
-    camera.mode === "orthographic"
-      ? 1 / (2 * Math.tan(camera.fov / 2))
-      : 1 / (2 * Math.sin(camera.fov / 2));
+  const f = camera.mode === "orthographic"
+    ? 1 / (2 * Math.tan(camera.fov / 2))
+    : 1 / (2 * Math.sin(camera.fov / 2));
   const delta = Vec3.sub(
     Vec3(),
     camera.position as Vec3,
@@ -229,6 +229,24 @@ export class StoryContainer {
         `Data size ${data.length} bytes exceeds maximum allowed size of ${maxSize} bytes`,
       );
     }
+  }
+
+  /**
+   * Inflates (deserializes) binary story data back into a StoryContainer instance
+   * @param data Compressed Uint8Array containing the story data
+   * @returns Promise resolving to a StoryContainer instance
+   */
+  static async inflate(data: Uint8Array): Promise<StoryContainer> {
+    // Inflate the compressed data
+    const inflated = await Task.create("Inflate Story Data", async (ctx) => {
+      return await inflate(ctx, data);
+    }).run();
+
+    // Decode from MessagePack
+    const decoded = decodeMsgPack(inflated) as { version: 1; story: Story };
+
+    // Create new StoryContainer instance
+    return new StoryContainer(decoded.story);
   }
 }
 
